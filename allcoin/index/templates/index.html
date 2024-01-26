@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %} {% endblock title %}
+{% block header %} {% endblock header %}
+
+{% block content %}
+<style>
+	body {
+   	   background: #1f1a29d0;
+	   color: #fff;
+   }
+	li {
+  display: inline-block;
+}
+   </style>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							Coin
+						</th>
+						<th>
+							Price
+						</th>
+						<th>
+							Status
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for key, value in crypto_price_dict.items %}
+					<tr class="table-success">
+						<td>
+							{{ forloop.counter }}
+						</td>
+						<td>
+							<li>{{ key|slice:":-4" }}</li>
+						</td>
+						<td>
+							<li>{{ value }} USD</li>
+						</td>
+						<td>
+							.
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock content %}
